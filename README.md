@@ -136,6 +136,16 @@ Sobre o projeto de API, creio que esses são os pontos mais fortes do codigo, fi
 
 #### Possiveis problemas ao executar a aplicação 🔍
 
+- Erro de certificado (Pagina não confiável ou segura / NET::ERR_CERT_INVALID)
+
+Caso o erro acima aconteça, é bem possível que seu navegador esteja configurado para não confiar em certificados SSL de um localhost, o que inviabiliza o uso da aplicação dessa forma. Para corrigir deve-se alterar a configuração do navegador, um exemplo no Google Chrome:
+
+Pesquisar por chrome://flags/#allow-insecure-localhost
+
+Trocar de disabled para Enabled.
+![image](https://github.com/FelipeRDEV/API_Validadora_De_Senha/assets/87353123/b7be4262-718d-482e-8ff3-89efa371b552)
+
+
 É possível (raro, mas possível) que as portas que a aplicação utiliza não estejam disponíveis em seu modem/roteador, portanto, caso ocorram falhas nas chamadas de api por tais motivos, verifique os arquivos de configuração dos projetos (launchSettings.json) e configure uma porta disponível em seu ambiente.
 
 Caso ocorra algum erro que indique que a aplicação não pode ser executada por uma porta, porém também há uma mensagem para confirmar se o .NET Core está instalado, verifique a versão do seu framework (dotnet --version).
