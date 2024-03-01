@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidadorSenhaUI", "ValidadorSenhaUI\ValidadorSenhaUI.csproj", "{9F6B14B8-AF9F-4420-B19F-4EE3EA0DD5B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidadorSenhaAPI", "ValidadorSenhaAPI\ValidadorSenhaAPI.csproj", "{3B403E6F-C38C-4F79-862A-03C40D171805}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F6B14B8-AF9F-4420-B19F-4EE3EA0DD5B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6B14B8-AF9F-4420-B19F-4EE3EA0DD5B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6B14B8-AF9F-4420-B19F-4EE3EA0DD5B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6B14B8-AF9F-4420-B19F-4EE3EA0DD5B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B403E6F-C38C-4F79-862A-03C40D171805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B403E6F-C38C-4F79-862A-03C40D171805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B403E6F-C38C-4F79-862A-03C40D171805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B403E6F-C38C-4F79-862A-03C40D171805}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEE51BE2-8837-4B43-9794-D093D0D213A7}
+	EndGlobalSection
+EndGlobal

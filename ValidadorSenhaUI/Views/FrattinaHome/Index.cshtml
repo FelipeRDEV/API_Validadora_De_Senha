@@ -1,0 +1,101 @@
+﻿@model ValidadorSenhaUI.Models.SenhaModel
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="@Url.Content("~/fonts/icomoon/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/owl.carousel.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/style.css")">
+
+    <title>Validador de Senhas - Frattina</title>
+
+  </head>
+  <body>
+    <div class="d-lg-flex half">
+        <div class="bg order-1 order-md-2" style="background-image: url('@Url.Content("~/images/bg_1.jpg")');"></div>
+        <div class="contents order-2 order-md-1">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-7">
+                        <div class="mb-4 text-center">
+                            <h3>Validador de Senhas - Frattina</h3>
+                            <p class="mb-4">Digite uma senha no campo abaixo para verificar a segurança da mesma</p>
+                        </div>
+                       
+                        @using (Html.BeginForm("VerificarSenha", "FrattinaHome", FormMethod.Post))
+                        {
+                            <div class="form-group last mb-3">
+                                <label for="password">Senha</label>
+                                @Html.TextBoxFor(m => m.Senha, new { @class = "form-control", id = "senha" })
+                            </div>
+                            <input type="submit" value="Verificar" class="btn btn-block btn-primary btn-custom" />
+                        }
+
+                        @if (!Model.SenhaValida && Model.Erros != null && Model.Erros.Any())
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                <ul>
+                                    @foreach (var erro in Model.Erros)
+                                    {
+                                        <li>@erro</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+
+                        @if (Model.SenhaValida && (Model.Erros == null || !Model.Erros.Any()))
+                        {
+                            <div class="alert alert-success text-center" role="alert">
+                                <h2> Senha Válida.</h2>
+                            </div>
+                        }
+                        <a href="#" id="showJsonLink">Clique aqui para ver o JSON retornado pela API</a>
+
+                        <div class="modal fade" id="jsonModal" tabindex="-1" role="dialog" aria-labelledby="jsonModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="jsonModalLabel">JSON Retornado pela API</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <pre id="jsonContent">@Html.Raw(Model.JsonRecebidoPelaAPI)</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   
+
+                        <div class="mt-4 text-center">
+                            <a href="https://github.com/FelipeRDEV"> Github </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="@Url.Content("~/js/jquery-3.3.1.min.js")"></script>
+    <script src="@Url.Content("~/js/popper.min.js")"></script>
+    <script src="@Url.Content("~/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/js/main.js")"></script>
+
+    <script>
+        $(function () {
+            $('#showJsonLink').on('click', function (e) {
+                e.preventDefault();
+                $('#jsonContent').text(JSON.stringify(@Html.Raw(Model.JsonRecebidoPelaAPI), null, 2));
+                $('#jsonModal').modal('show');
+            });
+        });
+    </script>
+
+</body>
+</html>
